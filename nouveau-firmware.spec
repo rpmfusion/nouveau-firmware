@@ -1,6 +1,6 @@
 Name:            nouveau-firmware
 Version:         340.32
-Release:         2%{?dist}
+Release:         3%{?dist}
 Summary:         Firmware files used by the nouveau Linux kernel driver
 
 License:         Redistributable, no modification permitted
@@ -42,6 +42,9 @@ find -maxdepth 1 ! -type d \( -name "nv*" -o -name "vuc*" \)  | xargs mv -t %{bu
 
 
 %changelog
+* Tue Mar 05 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 340.32-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
 * Sun Aug 19 2018 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 340.32-2
 - Rebuilt for Fedora 29 Mass Rebuild binutils issue
 
