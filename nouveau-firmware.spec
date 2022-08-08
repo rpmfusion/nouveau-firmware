@@ -1,6 +1,6 @@
 Name:            nouveau-firmware
 Version:         340.32
-Release:         9%{?dist}
+Release:         10%{?dist}
 Summary:         Firmware files used by the nouveau Linux kernel driver
 
 License:         Redistributable, no modification permitted
@@ -42,6 +42,10 @@ find -maxdepth 1 ! -type d \( -name "nv*" -o -name "vuc*" \)  | xargs mv -t %{bu
 
 
 %changelog
+* Mon Aug 08 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 340.32-10
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild and ffmpeg
+  5.1
+
 * Thu Feb 10 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 340.32-9
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
