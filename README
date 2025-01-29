@@ -1,29 +1,20 @@
-These are tools designed to help with reverse-engineering the VP2
-engine available on NVIDIA NV84-NV98 cards.
+extract_firmware
+----------------
 
-h264_player:
+This tool is for older NVIDIA blob versions. These had netlist
+archives embedded in them with gzip headers, and the video firmware
+was raw data in the object file.
 
-  A player that is designed to play back exactly one video, for now:
-  http://www.h264info.com/clips.html, download The Simpsons Movie
-  trailer, and run mplayer -dumpvideo foo.mkv. The resulting
-  stream.dump file is the input file for h264_player.
+The output of the tool is the video firmware, and optionally, the
+extracted netlists classified by GPU (to potentially use in place of
+the nouveau-made firmware). This classification is only done for very
+specific versions.
 
-  Note that it does not do any frame reordering, so the output is very
-  jittery. Also since it doesn't have access to the picinfo, it's
-  hardcoded to the right thing (so other videos are unlikely to play).
+scanner
+-------
 
-  (Current version commented s.t. it outputs just the first frame's
-  YUV data on stdout.)
-
-bsp_test:
-
-  Tries to make sure that the BSP engine is accessible and functioning
-  properly. Invokes the 0x304 "write semaphore" method, and checks
-  whether the value is indeed written.
-
-decode_frame:
-
-  Standalone program that decodes a single NAL (that it loads from a
-  separate file). This has all the bits necessary to do the actual
-  decoding, but uses hardcoded picinfo, as h264_player above. Output
-  is a YUV file on stdout.
+This is an explorational tool (written in Go!) to search for
+compressed blobs inside of the blob object file. It uses relocation
+data to locate potentially interesting bits of the rodata to search
+through. The outputs are netlist archives, as well as "whole"
+files. These tend to be falcon programs, but some are just data files.

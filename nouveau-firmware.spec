@@ -6,10 +6,10 @@ Summary:         Firmware files used by the nouveau Linux kernel driver
 License:         Redistributable, no modification permitted
 URL:             https://nouveau.freedesktop.org/wiki/VideoAcceleration/
 Source0:         https://download.nvidia.com/XFree86/Linux-x86_64/%{version}/NVIDIA-Linux-x86_64-%{version}.run
-Source1:         https://raw.github.com/imirkin/re-vp2/master/extract_firmware.py
-Source2:         https://raw.github.com/imirkin/re-vp2/master/README
+Source1:         https://raw.githubusercontent.com/envytools/firmware/refs/heads/master/extract_firmware.py
+Source2:         https://raw.githubusercontent.com/envytools/firmware/refs/heads/master/README
 
-BuildRequires:   python2-devel
+BuildRequires:   python3
 
 BuildArch:       noarch
 
@@ -26,7 +26,7 @@ cp %{SOURCE2} .
 
 
 %build
-%{__python2} %{SOURCE1}
+%{__python3} %{SOURCE1}
 
 
 %install
